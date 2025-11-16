@@ -32,6 +32,9 @@
     <ClCompile Include="FIle Converter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Embedpy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FIle Converter.rc">
@@ -45,5 +48,10 @@
     <Image Include="FIle Converter.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="py\ppt to pdf.py">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

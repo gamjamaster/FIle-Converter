@@ -1,4 +1,5 @@
 #include <wx/wx.h>
+#include <File_Converter.h>
 #include <wx/filedlg.h>
 #include <wx/textfile.h>
 
@@ -43,8 +44,8 @@ MyFrame::MyFrame(const wxString& title)
     wxMenuBar* menuBar = new wxMenuBar;
     menuBar->Append(fileMenu, "&File");
 
-    SetMenuBar(menuBar);
-
+    SetMenuBar(menuBar); 
+ 
     //Create button
     wxPanel* panel = new wxPanel(this, wxID_ANY);
     wxButton* openfile = new wxButton(panel, wxID_ANY, "Select File", wxPoint(120, 60), wxSize(150, 40));

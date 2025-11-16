@@ -102,12 +102,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include";"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\libs;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>wxbase32ud.lib;wxmsw32ud_core.lib;wxpngd.lib;wxzlibd.lib;wxjpegd.lib;wxexpatd.lib;comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -119,12 +119,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include";"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>"C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib"</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\libs;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>wxbase32ud.lib;wxmsw32ud_core.lib;wxpngd.lib;wxzlibd.lib;wxjpegd.lib;wxexpatd.lib;comctl32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FIle Converter.cpp" />
+    <ClCompile Include="Embedpy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FIle Converter.rc" />
@@ -143,6 +144,9 @@
   <ItemGroup>
     <Image Include="FIle Converter.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="py\ppt to pdf.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
