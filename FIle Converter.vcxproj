@@ -24,6 +24,7 @@
     <ProjectGuid>{e315a1aa-c01a-4c91-80b5-71afb8fa9282}</ProjectGuid>
     <RootNamespace>FIleConverter</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>File Converter</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -100,9 +101,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -117,9 +120,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>
+      </PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\kim\AppData\Local\Programs\Python\Python313\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\include;C:\Users\kim\Desktop\Perosnal Project\wxWidgets-3.2.8\wxWidgets-3.2.8\lib\vc_x64_lib\mswud;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -131,12 +136,13 @@
   <ItemGroup>
     <ClInclude Include="FIle Converter.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Tools.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FIle Converter.cpp" />
-    <ClCompile Include="Embedpy.cpp" />
+    <ClCompile Include="File_Converter.cpp" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="FIle Converter.rc" />
@@ -146,7 +152,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="py\ppt to pdf.py" />
+    <None Include="py\ppt2pdf.py" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

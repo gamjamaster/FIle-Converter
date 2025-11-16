@@ -27,12 +27,15 @@
     <ClInclude Include="FIle Converter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FIle Converter.cpp">
+    <ClCompile Include="File_Converter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Embedpy.cpp">
+    <ClCompile Include="Tools.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,7 +53,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="py\ppt to pdf.py">
+    <None Include="py\ppt2pdf.py">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
