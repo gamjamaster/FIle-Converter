@@ -1,8 +1,13 @@
 #include <wx/wx.h>
 #include <wx/filedlg.h>
 #include <wx/textfile.h>
+#include <wx/filename.h>
 #include "Tools.h"
 
+enum {
+    ID_MENU_OPEN_FILE = wxID_HIGHEST + 1,
+    ID_MENU_OPEN_DIR
+};
 
 // App class
 class MyApp : public wxApp
@@ -21,8 +26,8 @@ private:
     void OnExit(wxCommandEvent& event);
     void OnOpenFile(wxCommandEvent& event);
     void SaveDirectory(wxCommandEvent& event);
-    std:: string filePath;
-    std:: string directory;
+    wxString  filePath;
+    wxString  directory;
 };
 
 wxIMPLEMENT_APP(MyApp);
@@ -42,8 +47,8 @@ MyFrame::MyFrame(const wxString& title)
     // Menu bar
     wxMenu* fileMenu = new wxMenu;
     fileMenu->Append(wxID_EXIT, "&Exit\tCtrl+Q", "Quit the application");
-    fileMenu->Append(wxFD_OPEN, "&Open File\tCtrl+O", "Open a file");
-    fileMenu->Append(wxID_OPEN, "&Choose directory\tCtrl+D", "Choose a directory");
+    fileMenu->Append(ID_MENU_OPEN_FILE, "&Open File\tCtrl+O", "Open a file");
+    fileMenu->Append(ID_MENU_OPEN_DIR, "&Choose directory\tCtrl+D", "Choose a directory");
 
     wxMenuBar* menuBar = new wxMenuBar;
     menuBar->Append(fileMenu, "&File");
@@ -60,11 +65,25 @@ MyFrame::MyFrame(const wxString& title)
     // Event binding
     openfile->Bind(wxEVT_BUTTON, &MyFrame::OnOpenFile, this);
     conversion -> Bind(wxEVT_BUTTON, [this](wxCommandEvent&) { 
-        EmbedPythonConvert(this->filePath, this->directory); });
+        if (this->filePath.IsEmpty()) {
+            wxMessageBox("Please select a file first!", "Error", wxOK | wxICON_ERROR);
+            return;
+        }
+        if (this->directory.IsEmpty()) {
+            wxMessageBox("Please select a save directory first!", "Error", wxOK | wxICON_ERROR);
+            return;
+        }
+        
+        wxFileName inputFile(this->filePath);
+        wxString outputPath = this->directory + "\\" + inputFile.GetName() + ".pdf";
+        
+        EmbedPythonConvert((this->filePath).ToStdString(), outputPath.ToStdString());
+        wxMessageBox("Conversion completed!\nSaved to: " + outputPath, "Success", wxOK | wxICON_INFORMATION);
+    });
 
     Bind(wxEVT_MENU, &MyFrame::OnExit, this, wxID_EXIT);
-    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, wxFD_OPEN);
-    Bind(wxEVT_MENU, &MyFrame::SaveDirectory, this, wxID_OPEN);
+    Bind(wxEVT_MENU, &MyFrame::OnOpenFile, this, ID_MENU_OPEN_FILE);
+    Bind(wxEVT_MENU, &MyFrame::SaveDirectory, this, ID_MENU_OPEN_DIR);
 }
 
 // Open file

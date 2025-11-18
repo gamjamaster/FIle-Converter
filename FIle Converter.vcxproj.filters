@@ -56,5 +56,6 @@
     <None Include="py\ppt2pdf.py">
       <Filter>Source Files</Filter>
     </None>
+    <None Include=".github\copilot-instructions.md" />
   </ItemGroup>
 </Project>

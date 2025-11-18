@@ -26,11 +26,12 @@ void EmbedPythonConvert(const string& ppt, const string& pdf)
         return;
     }
 
-    PyObject* args = PyTuple_Pack(
-        2,
-        PyUnicode_FromString(ppt.c_str()),
-        PyUnicode_FromString(pdf.c_str())
-    );
+    PyObject* ppt_str = PyUnicode_FromString(ppt.c_str());
+    PyObject* pdf_str = PyUnicode_FromString(pdf.c_str());
+    PyObject* args = PyTuple_Pack(2, ppt_str, pdf_str);
+    
+    Py_DECREF(ppt_str);
+    Py_DECREF(pdf_str);
 
     PyObject* result = PyObject_CallObject(func, args);
     if (!result) {

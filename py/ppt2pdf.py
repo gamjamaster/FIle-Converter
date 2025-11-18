@@ -1,14 +1,35 @@
 import sys
 import os 
-import comtypes.client
+import win32com.client
 
-def convert(ppt_path, pdf_path):
-    powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
-    powerpoint.Visible = False
-    slides = powerpoint.Presentations.Open(ppt_path)
+def convert(input_file, output_file):
+    """Convert PowerPoint to PDF"""
+    powerpoint = None
+    presentation = None
+    try:
+        # Use absolute paths
+        input_file = os.path.abspath(input_file)
+        output_file = os.path.abspath(output_file)
+        
+        # Create PowerPoint application instance
+        powerpoint = win32com.client.DispatchEx("Powerpoint.Application")
+        powerpoint.Visible = 1  
 
-    file_name = os.path.splitext(os.path.basename(ppt_path))[0]
-    output_file_path = os.path.join(pdf_path, file_name + ".pdf")
-    
-    slides.SaveAs(output_file_path, FileFormat=32)
-    slides.Close()
+        # Open presentation with full path
+        presentation = powerpoint.Presentations.Open(input_file, WithWindow=False)
+        
+        # Save as PDF (format type 32)
+        presentation.SaveAs(output_file, 32)
+        
+        return True
+    except Exception as e:
+        return str(e)
+    finally:
+        # Clean up - close presentation and quit PowerPoint
+        try:
+            if presentation:
+                presentation.Close()
+            if powerpoint:
+                powerpoint.Quit()
+        except:
+            pass
